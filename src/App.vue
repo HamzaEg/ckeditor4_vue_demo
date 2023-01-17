@@ -23,8 +23,8 @@
         <v-list nav>
           <v-list-item
             prepend-icon="mdi-email"
-            title="Arztbrief"
-            value="arztbrief"
+            title="Dokumentverwaltung"
+            value="Dokumentverwaltung"
           ></v-list-item>
         </v-list>
       </v-navigation-drawer>
