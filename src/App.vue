@@ -23,7 +23,7 @@
         <v-list nav>
           <v-list-item
             prepend-icon="mdi-email"
-            title="Dokumentverwaltung"
+            title="Dokumentverwaltung s"
             value="Dokumentverwaltung"
           ></v-list-item>
         </v-list>
