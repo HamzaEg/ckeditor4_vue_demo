@@ -141,6 +141,7 @@ export default {
     onMounted(() => {
       // initalize ckeditor
       ckEditor = window.CKEDITOR.replace("editor1", {
+       // filebrowserBrowseUrl: '/browser/browse.php',
         // Load the Simple Box plugin.
         extraPlugins: ['simplebox', 'timestamp', 'epikrise', 'codesnippet']
       });
@@ -148,23 +149,30 @@ export default {
       CKEDITOR.on('dialogDefinition', function(e){
         const dialogName = e.data.name;
         const dialogDefinition = e.data.definition;
-        // console.log(dialogDefinition);
+        if (dialogName === 'about') {
+          dialogDefinition.contents[0].elements[0].html = 'getData from ckEditor' + ckEditor.getData();
+
+           console.log(ckEditor.getData());
+           dialogDefinition.title = 'Epikrise' 
+          
+
+         }
+
+
         if (dialogName === 'image') {
           dialogDefinition.removeContents('Link');
           dialogDefinition.removeContents('advanced');
           dialogDefinition.removeContents('Upload');
-          
-          
 
           var tabContent = dialogDefinition.getContents('info');
-          console.log(dialogDefinition);
-           tabContent.remove('txtHSpace');
+          console.log(tabContent);
+          // tabContent.remove('txtHSpace');
           // tabContent.remove('txtVSpace');
-          tabContent.remove('Width');
-          
-          
-
-          
+          // tabContent.remove('txtWidth');
+          // tabContent.remove('txtHeight');
+          // tabContent.remove('txtBorder');
+          // tabContent.remove('cmbAlign');
+          // tabContent.remove('protocol');
           
          
         }
