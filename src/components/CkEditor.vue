@@ -146,6 +146,81 @@ export default {
         extraPlugins: ['simplebox', 'timestamp', 'epikrise', 'codesnippet']
       });
 
+      ckEditor.addCommand("mySimpleCommand", {
+    exec: function(edt) {
+      console.log(paragraphs);
+        alert('my simple command alert! ' + edt.getData());
+    }
+});
+ckEditor.ui.addButton('SuperButton', {
+    label: "Click me",
+    command: 'mySimpleCommand',
+    toolbar: 'document',
+    icon: 'https://avatars1.githubusercontent.com/u/5500999?v=2&s=16'
+});
+
+ckEditor.addCommand("SelectTextButton", {
+    exec: function(edt) {
+      //console.log(edt);
+      
+      var selectedTextNative = edt.getSelection().getNative();  
+      var selectedText = edt.getSelection().getSelectedText(); 
+      if (selectedText !== '') {
+        alert(selectedTextNative.focusNode.wholeText)
+        return
+      }
+
+
+      var diagnosenParagraph = edt.document.$.getElementById('diagnosen');
+      var anamneseParagraph = edt.document.$.getElementById('anamnese');
+      var epikriseParagraph = edt.document.$.getElementById('epikrise');
+      var therapieParagraph = edt.document.$.getElementById('therapie');
+
+      diagnosenParagraph !== null ? diagnosenParagraph.innerHTML = diagnosenParagraph.innerHTML.length : null;
+      anamneseParagraph !== null ? anamneseParagraph.innerHTML = anamneseParagraph.innerHTML.length : null;
+      epikriseParagraph !== null ? epikriseParagraph.innerHTML = epikriseParagraph.innerHTML.length: null;
+      therapieParagraph !== null ? therapieParagraph.innerHTML = therapieParagraph.innerHTML.length: null;
+
+      // console.log(selectedTextNative, selectedText);
+      // console.log(selectedTextNative.focusNode.wholeText);
+
+     
+      //edt.insertHtml(paragraphs.diagnosen);
+    }
+});
+ckEditor.ui.addButton('SelectTextButton', {
+    label: "Select Text",
+    command: 'SelectTextButton',
+    toolbar: 'document',
+    icon: 'https://avatars1.githubusercontent.com/u/5100999?v=2&s=16'
+});
+
+ckEditor.addCommand("EpikriseButton", {
+    exec: function(edt) {
+      var epikrise = edt.document.$.getElementById('epikrise');
+      console.log(epikrise);
+      console.log(epikrise ? epikrise.innerHTML.length : epikrise);
+      //epikrise !== null ? epikrise.innerHTML = epikrise.innerHTML.length: null;
+
+      //edt.insertHtml( (epikrise === null || epikrise.innerHTML.length < 150)  ? '<div id="epikrise">'+ paragraphs.epikrise+'</div>' : 'NULL');
+if (epikrise === null) {
+ 
+ edt.insertHtml( '<div id="epikrise"><h3><strong>Epikrise</strong></h3>'+ paragraphs.epikrise+'</div>');  
+} else if( epikrise.innerHTML.length < 150){
+  epikrise.innerHTML = ( '<div id="epikrise">'+ paragraphs.epikrise+'</div>');  
+
+}
+
+    }
+});
+ckEditor.ui.addButton('EpikriseButton', {
+    label: "Epikrise",
+    command: 'EpikriseButton',
+    toolbar: 'document',
+    icon: 'https://avatars1.githubusercontent.com/u/5300999?v=2&s=16'
+});
+
+
       CKEDITOR.on('dialogDefinition', function(e){
         const dialogName = e.data.name;
         const dialogDefinition = e.data.definition;
@@ -163,9 +238,11 @@ export default {
           dialogDefinition.removeContents('Link');
           dialogDefinition.removeContents('advanced');
           dialogDefinition.removeContents('Upload');
-
           var tabContent = dialogDefinition.getContents('info');
           console.log(tabContent);
+        
+
+        
           // tabContent.remove('txtHSpace');
           // tabContent.remove('txtVSpace');
           // tabContent.remove('txtWidth');
