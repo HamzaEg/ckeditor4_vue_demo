@@ -21,6 +21,8 @@
       </v-slide-group>
     </v-sheet> -->
     <br />
+    <v-card class="pa-2 mb-2" max-width="1200">
+
     <v-container fluid>
       <v-row align="center" class="d-flex justify-center">
         <v-col class="d-flex" cols="12" sm="6">
@@ -77,7 +79,7 @@
       Therapieempfehlungen
     </v-chip> -->
 
-    <v-card color="grey pa-3 mb-3">
+    
       <textarea id="editor1" name=""></textarea>
       <!-- <div name="editor2" contenteditable="true">
         This is inline example

@@ -7,7 +7,7 @@ CKEDITOR.addTemplates("default", {
     templates: [
         {
             title: "Arztbrief", image: "arztbrief.jpg", description: "Arztbrief with some text and a table.",
-            html: '<table cellpadding="1" cellspacing="1" style="width:500px"><tbody><tr><td><div id="adressaten"><p>Adressaten</p></div></td><td><span style="font-size:10px">Paracelsus-Elena-Klink</span></td></tr></tbody></table><h3><strong>Diagnosen</strong></h3><div id="diagnosen"><p>Diagnosen inhalt&nbsp;</p></div><h3><strong>Anamnese</strong></h3><div id="anamnese"><p>Anamnese inhalt&nbsp;</p></div><h3><strong>Epikrise</strong></h3><div id="epikrise"><p>Epikrise inhalt&nbsp;</p></div><h3><strong>Therapieempfehlungen</strong></h3><div id="therapie"><p>Therapieempfehlungen inhalt&nbsp;</p></div>'
+            html: '<table cellpadding="1" cellspacing="1" style="width:500px"><tbody><tr><td><div id="adressaten"><p>Adressaten</p></div></td><td><span style="font-size:10px">Paracelsus-Elena-Klink</span></td></tr></tbody></table><h3><strong>Diagnosen</strong></h3><div id="diagnosen"><p>Diagnosen inhalt&nbsp;</p></div><h3><strong>Anamnese</strong></h3><div id="anamnese"><p>Anamnese inhalt&nbsp;</p></div><div><div style="page-break-after:always"><span style="display:none">&nbsp;</span></div></div><h3><strong>Epikrise</strong></h3><div id="epikrise"><p>Epikrise inhalt&nbsp;</p></div><h3><strong>Therapieempfehlungen</strong></h3><div id="therapie"><p>Therapieempfehlungen inhalt&nbsp;</p></div>'
         },
         {
             title: "Welcome letter", image: "welcomeLetter.jpg", description: "Arztbrief with some text and a table.",

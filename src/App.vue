@@ -35,9 +35,20 @@
           @click.stop="drawer = !drawer"
         ></v-app-bar-nav-icon
       ></v-app-bar>
+      <v-btn @click.stop="isCkEditor = !isCkEditor">
+        Switch Editor
+      </v-btn>
 
       <v-main>
-        <CkEditor @sendContent="getContent" :templateIndex="templateIndex" />
+        <CkEditor @sendContent="getContent" :templateIndex="templateIndex" v-if="isCkEditor" />
+
+        <div style="font-family: Avenir, sans-serif" v-else>
+    <vue-document-editor v-model:content="content" /> <!-- Vue 3 syntax -->
+    <v-btn @click.stop="content">print</v-btn>
+    <!-- <vue-document-editor :content.sync="content" /> --> <!-- Vue 2 syntax -->
+
+  </div>
+
       </v-main>
     </v-layout>
   </v-card>
@@ -45,12 +56,14 @@
 
 <script>
 import CkEditor from "./components/CkEditor.vue";
+import VueDocumentEditor from 'vue-document-editor'
 
 //import { ref, reactive } from "vue";
 export default {
   name: "App",
   components: {
     CkEditor,
+    VueDocumentEditor
   },
   setup() {
     const getContent = (val) => {
@@ -61,6 +74,8 @@ export default {
   data() {
     return {
       drawer: false,
+      isCkEditor: true,
+      content: ["<h1>Hello!</h1>Fill this page with text and new pages will be created as it overflows."]
     };
   },
 };
